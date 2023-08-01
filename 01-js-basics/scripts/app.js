@@ -266,9 +266,132 @@
 //   name: "Jack",
 // };
 
-const friends = ["f1", "f2", "f3"];
-friends.push("f4");
+// const friends = ["f1", "f2", "f3"];
+// friends.push("f4");
 
-console.log(friends);
+// console.log(friends);
 
 // friends = [];       // ERROR
+
+// ---------------
+// > Destructuring : "unpacking" the collection
+// ---------------
+
+// let friends = ["Jack", "Jill", "John", "Jenny"];
+
+// let [f1, f3, f4] = friends;
+
+// console.log(f3);
+
+// let userOne = {
+//   firstName: "John",
+//   lastName: "Doe",
+//   age: 32,
+// };
+
+// let userTwo = {
+//   firstName: "Jenny",
+//   lastName: "Doe",
+//   age: 28,
+// };
+
+// let {
+//   firstName: userOneFirstName,
+//   lastName: userOneLastName,
+//   age: userOneAge,
+// } = userOne;
+
+// let {
+//   firstName: userTwoFirstName,
+//   lastName: userTwoLastName,
+//   age: userTwoAge,
+// } = userTwo;
+
+// console.log(userOneFirstName, userTwoFirstName);
+// let { age, firstName, lastName } = user;
+
+// console.log(lastName); //
+
+// let userOne = {
+//   firstName: "John",
+//   lastName: "Doe",
+//   age: 32,
+//   friends: ["Jenny", "Jack", "Jill"],
+// };
+
+// let {
+//   firstName,
+//   lastName,
+//   age,
+//   friends: [f1, f2, f3],
+// } = userOne;
+
+// console.log(f2);
+
+// let users = [
+//   { name: "john", email: "john@test" },
+//   { name: "jenny", email: "jenny@test" },
+//   { name: "jack", email: "jack@test" },
+// ];
+
+// let [
+//   { name: n1, email: e1 },
+//   { name: n2, email: e2 },
+//   { name: n3, email: e3 },
+// ] = users;
+
+// let [userOne, userTwo, userThree] = users;
+
+// console.log(userTwo);
+
+// -------
+// Classes
+// -------
+
+// class Person {
+//   constructor(name) {
+//     this.name = name;
+//   }
+
+//   getDetails() {
+//     return this.name;
+//   }
+// }
+
+// class Student extends Person {
+//   // Private member
+//   #enrolledCourse;
+
+//   // Static Member
+//   static numberOfStudent = 0;
+
+//   constructor(studId, studName) {
+//     super(studName);
+//     this.studId = studId;
+//     // this.studName = studName;
+//     Student.numberOfStudent++;
+//   }
+
+//   // Accessor & Mutator
+//   get course() {
+//     return this.#enrolledCourse;
+//   }
+
+//   set course(value) {
+//     this.#enrolledCourse = value;
+//   }
+
+//   getDetails() {
+//     return this.studId + " - " + super.getDetails();
+//   }
+// }
+
+// let jenny = new Student("S001", "Jenny Public");
+
+// console.log(jenny.getDetails());
+
+// jenny.course = "React 101";
+
+// console.log(jenny.course);
+
+// console.log("Enrolled Students -> ", Student.numberOfStudent);
