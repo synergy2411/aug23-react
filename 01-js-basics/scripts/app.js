@@ -395,3 +395,222 @@
 // console.log(jenny.course);
 
 // console.log("Enrolled Students -> ", Student.numberOfStudent);
+
+// ------------
+// Map / Set
+// - any type of property name
+// - various opertions
+// - can be iterated using for loop
+// ------------
+
+// let john = { name: "John Doe" };
+
+// let user = {
+//   true: "1",
+//   john: "the user",
+// };
+
+// console.log(user);
+
+// let john = { name: "John Doe" };
+
+// let map = new Map();
+
+// map.set(true, "1");
+
+// map.set(john, "the user");
+
+// console.log(map.size);
+
+// for (let key of map.keys()) {
+//   console.log("Key : ", key);
+// }
+
+// for (let value of map.values()) {
+//   console.log("Value : ", value);
+// }
+
+// for (let [key, value] of map.entries()) {
+//   console.log(key + " - " + value);
+// }
+
+// let set = new Set();
+
+// set.add("John");
+// set.add("Jack");
+// set.add("Jill");
+// set.add("Jenny");
+// set.add("Jenny");       // DISALLOWS THE DUPLICATE VALUES
+
+// console.log(set.size);
+
+// ----------
+// Template Literals - " " | ' ' | ` ` (back tick)
+// - write multiline string without (\n)
+// - embed variables within string without (+)
+// ----------
+
+// let username = "Jenny Public";
+
+// let userAge = 32;
+
+// let greet = `
+
+// Hello from ${username}!
+
+// I'm ${userAge} years old.
+
+// `;
+
+// console.log(greet);
+
+// -----------
+// PROMISE
+// - Placeholder for future values
+// - Pending State
+// - Settled State
+// - Success (Resolved)
+// - Failure (Reject)
+// -----------
+
+// Promise Producer
+
+// const promiseProducer = (ms) => {
+//   let promise = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       if (ms < 3000) {
+//         resolve({ message: "SUCCESS" });
+//       } else {
+//         reject(new Error("Too high value"));
+//       }
+//     }, ms);
+//   });
+
+//   return promise;
+// };
+
+// Promise Consumer
+// - then().catch()
+// const promiseConsume = () => {
+//   promiseProducer(2000)
+//     .then((response) => {
+//       console.log("FIRST PROMISE : ", response);
+//       promiseProducer(4000)
+//         .then(() => {})
+//         .catch(console.erro);
+
+//       return response.message;
+//     })
+//     .then((result) => {
+//       console.log("SECOND PROMISE : ", result);
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//     });
+// };
+
+// promiseConsume();
+
+// - Async...await
+// async function promiseConsumer() {
+//   try {
+//     const responseOne = await promiseProducer(4000);
+//     const responseTwo = await promiseProducer(1000);
+//     console.log("RESPONSE : ", responseOne, responseTwo);
+//   } catch (err) {
+//     console.error(err);
+//   }
+// }
+
+// promiseConsumer();
+
+// PROMISE API
+// - all
+// - allSettled
+// - race
+// - any
+// - resolved
+// - rejected
+
+// Promise.resolve({ message: "SUCCESS" }).then(console.log).catch(console.error);
+// Promise.reject(new Error("Something went worng"))
+//   .then(console.log)
+//   .catch(console.error);
+
+// const createPromise = (ms, data) => {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       if (ms === 2000) {
+//         return reject(new Error("bad Code"));
+//       } else {
+//         resolve(data);
+//       }
+//     }, ms);
+//   });
+// };
+
+// const p1 = createPromise(1000, "First Promise");
+// const p2 = createPromise(2000, "Second Promise");
+// const p3 = createPromise(3000, "Third Promise");
+
+// let promiseArray = [p1, p2, p3];
+
+// Promise.race(promiseArray)
+//   .then((response) => {
+//     console.log(response);
+//   })
+//     .catch(console.error);
+
+// Promise.any(promiseArray)
+//   .then((response) => {
+//     console.log(response);
+//   })
+//   .catch(console.error);
+
+// Promise.allSettled(promiseArray)
+//   .then((response) => {
+//     console.log(response);
+//   })
+//   .catch(console.error);
+
+// Promise.all(promiseArray)
+//   .then((response) => {
+//     console.log(response);
+//   })
+//   .catch(console.error);
+
+// --------------
+// Rest API Call
+// - using XHR
+// - using fetch() API
+// --------------
+
+// let xhr = new XMLHttpRequest();
+
+// xhr.onreadystatechange = function () {
+//   if (this.status === 200 && this.response) {
+//     console.log(this.responseText);
+//   }
+// };
+
+// xhr.open("GET", "https://jsonplaceholder.typicode.com/posts", true);
+
+// xhr.send();
+
+// GET CALL
+// fetch("https://jsonplaceholder.typicode.com/posts")
+//   .then((response) => response.json())
+//   .then((posts) => console.log(posts))
+//   .catch(console.error);
+
+// POST CALL
+fetch("https://jsonplaceholder.typicode.com/posts", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({ title: "Some title", body: "..." }),
+})
+  .then((response) => response.json())
+  .then((posts) => console.log(posts))
+  .catch(console.error);

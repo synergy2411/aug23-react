@@ -16,9 +16,9 @@
   > Class
   > Map / Set
   > Template literals
-  > Generators
   > Promise API
   > Fetch API
+  > Generators
 
 # MEAN / MERN
 
