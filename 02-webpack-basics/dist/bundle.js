@@ -1,0 +1,1 @@
+(()=>{"use strict";const o=Math.round(100*Math.random()),s=JSON.parse('{"users":[{"firstName":"John","lastName":"Doe","age":32}]}');console.log(s),console.log("Today is your lucky day!"),console.log("Lucky Number : ",o),console.log("Today task  : ","Run 5 miles today!")})();

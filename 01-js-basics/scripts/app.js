@@ -604,13 +604,99 @@
 //   .catch(console.error);
 
 // POST CALL
-fetch("https://jsonplaceholder.typicode.com/posts", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({ title: "Some title", body: "..." }),
-})
-  .then((response) => response.json())
-  .then((posts) => console.log(posts))
-  .catch(console.error);
+// fetch("https://jsonplaceholder.typicode.com/posts", {
+//   method: "POST",
+//   headers: {
+//     "Content-Type": "application/json",
+//   },
+//   body: JSON.stringify({ title: "Some title", body: "..." }),
+// })
+//   .then((response) => response.json())
+//   .then((posts) => console.log(posts))
+//   .catch(console.error);
+
+// ---------------
+// GENERATORS
+// - functions whose execution is NOT continuous
+// ---------------
+
+// let arr = [201, 202, 203];
+
+// function* firstGenerator() {
+//   yield 301;
+//   yield 302;
+// }
+
+// function* theGenerator() {
+//   yield 101;
+//   yield 102;
+//   yield 103;
+//   yield* arr;
+//   yield* firstGenerator();
+// }
+
+// let it = theGenerator();
+
+// console.log(it.next());
+// console.log(it.next());
+// console.log(it.next());
+// console.log(it.next());
+
+// for (let value of theGenerator()) {
+//   console.log("VALUE : ", value);
+// }
+
+// function createPromise(ms, data) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve(data);
+//     }, ms);
+//   });
+// }
+
+// async function* theGenerator() {
+//   try {
+//     const resultOne = await createPromise(1000, "First Promise");
+//     console.log("Before first yield");
+//     yield resultOne;
+//     const resultTwo = await createPromise(3000, "Second Promise");
+//     console.log("AFTER first yield");
+//     yield resultTwo;
+//   } catch (err) {
+//     console.error(err);
+//   }
+// }
+
+// for (let promise of theGenerator()) {
+//   console.log(promise);
+// }
+// console.log("START");
+// const it = theGenerator();
+
+// const promiseOne = it.next();
+
+// promiseOne
+//   .then((result) => {
+//     console.log(result);
+//     console.log("Inside first promise");
+//   })
+//   .catch(console.error);
+
+// const promiseTwo = it.next();
+
+// promiseTwo.then(console.log).catch(console.error);
+
+// function* theGenerator() {
+//   let i = 0;
+//   while (true) {
+//     yield ++i;
+//   }
+// }
+
+// const it = theGenerator();
+
+// console.log(it.next());
+// console.log(it.next());
+// console.log(it.next());
+// console.log(it.next());
+// console.log(it.next());

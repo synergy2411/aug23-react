@@ -15,7 +15,7 @@
   > Destructuring
   > Class
   > Map / Set
-  > Template literals
+  > Template literals "" | '' | `${}`
   > Promise API
   > Fetch API
   > Generators
@@ -42,3 +42,20 @@
 
 - Primitive : String, Number, Boolean
 - Object Types / Reference Types : Objects, Arrays, Functions, Date
+
+---
+
+# Webpack : module bundler
+
+Babel
+Typescript
+
+# to generate package.json
+
+> npm init -y
+
+# webpack dependencies
+
+> npm install webpack webpack-cli -D
+
+> npm run build
