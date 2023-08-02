@@ -47,7 +47,8 @@
 
 # Webpack : module bundler
 
-Babel
+# Babel : Transpiler to convert ES6+ to ES5
+
 Typescript
 
 # to generate package.json
@@ -59,3 +60,19 @@ Typescript
 > npm install webpack webpack-cli -D
 
 > npm run build
+
+# to load CSS files
+
+> npm install style-loader css-loader -D
+
+# to install babel dependency -
+
+> npm install @babel/core @babel/preset-env babel-loader -D
+
+# to create HTML file dynamically
+
+> npm install html-webpack-plugin -D
+
+# to install webpack-dev-server
+
+> npm install webpack-dev-server -D
