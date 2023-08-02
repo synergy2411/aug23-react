@@ -76,3 +76,11 @@ Typescript
 # to install webpack-dev-server
 
 > npm install webpack-dev-server -D
+
+# to create tsconfig.json
+
+- npx tsc --init
+
+- create the scripts {"compile" : "tsc --watch"}
+
+- npm run compile
