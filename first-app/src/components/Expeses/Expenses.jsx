@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import ExpenseItem from "./ExpenseItem/ExpenseItem";
 
 function Expenses() {
+  let [show, setShow] = useState(false);
+
   let expenses = [
     {
       id: "e001",
@@ -23,9 +25,21 @@ function Expenses() {
     },
   ];
 
+  console.log("SHOW : ", show);
+
   return (
     <div className="container">
-      <h2 className="text-center">My Expenses App</h2>
+      <h2 className="text-center mb-4">My Expenses App</h2>
+      <div className="row mb-4">
+        <div className="col-4 offset-4">
+          <div className="d-grid">
+            <button className="btn btn-dark" onClick={() => setShow(!show)}>
+              Show
+            </button>
+          </div>
+          {show ? <p>Lorem ipsum dolor sit amet.</p> : null}
+        </div>
+      </div>
       <div className="row">
         {expenses.map((expense) => (
           <ExpenseItem key={expense.id} expense={expense} />
