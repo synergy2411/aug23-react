@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ExpenseItem from "./ExpenseItem/ExpenseItem";
 import ExpenseForm from "./ExpenseForm/ExpenseForm";
+import ExpenseFilter from "./ExpenseFilter/ExpenseFilter";
 
 const INITIAL_EXPENSES = [
   {
@@ -35,6 +36,12 @@ function Expenses() {
     setShow(false);
   };
 
+  const deleteExpense = (expenseId) => {
+    setExpenses((prevExpenses) =>
+      prevExpenses.filter((exp) => exp.id !== expenseId)
+    );
+  };
+
   return (
     <div className="container">
       <h2 className="text-center mb-4">My Expenses App</h2>
@@ -46,13 +53,20 @@ function Expenses() {
             </button>
           </div>
         </div>
+        <div className="col-4">
+          <ExpenseFilter />
+        </div>
       </div>
       {show && (
         <ExpenseForm closeForm={closeForm} addNewExpense={addNewExpense} />
       )}
       <div className="row">
         {expenses.map((expense) => (
-          <ExpenseItem key={expense.id} expense={expense} />
+          <ExpenseItem
+            key={expense.id}
+            expense={expense}
+            deleteExpense={deleteExpense}
+          />
         ))}
       </div>
     </div>

@@ -145,5 +145,10 @@ Typescript
 # to install bootstrap library
 
 > npm install bootstrap
+> import "bootstrap/dist/css/bootstrap.min.css";
 
 Short Circuit Operator - &&
+
+# Points to remember
+
+- Whenever new State is depend upon the previous State, always supply function in state changing method
