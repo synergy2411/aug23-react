@@ -26,6 +26,7 @@ const INITIAL_EXPENSES = [
 
 function Expenses() {
   let [show, setShow] = useState(false);
+  let [selYear, setSelYear] = useState("2022");
 
   const [expenses, setExpenses] = useState(INITIAL_EXPENSES);
 
@@ -42,6 +43,14 @@ function Expenses() {
     );
   };
 
+  const yearChangeHandler = (year) => {
+    setSelYear(year);
+  };
+
+  const filteredExpenses = expenses.filter(
+    (exp) => exp.createdAt.getFullYear().toString() === selYear
+  );
+
   return (
     <div className="container">
       <h2 className="text-center mb-4">My Expenses App</h2>
@@ -54,14 +63,14 @@ function Expenses() {
           </div>
         </div>
         <div className="col-4">
-          <ExpenseFilter />
+          <ExpenseFilter yearChangeHandler={yearChangeHandler} />
         </div>
       </div>
       {show && (
         <ExpenseForm closeForm={closeForm} addNewExpense={addNewExpense} />
       )}
       <div className="row">
-        {expenses.map((expense) => (
+        {filteredExpenses.map((expense) => (
           <ExpenseItem
             key={expense.id}
             expense={expense}

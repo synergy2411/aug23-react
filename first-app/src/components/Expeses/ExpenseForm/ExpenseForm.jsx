@@ -1,7 +1,10 @@
 import { useState } from "react";
-import { v4 } from "uuid";
+import { createPortal } from "react-dom";
 
-const ExpenseForm = ({ closeForm, addNewExpense }) => {
+import { v4 } from "uuid";
+import "./ExpenseForm.css";
+
+const ExpenseForm = ({ closeForm, addNewExpense, setShow }) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredCreatedAt, setEnteredCreatedAt] = useState("");
@@ -21,9 +24,9 @@ const ExpenseForm = ({ closeForm, addNewExpense }) => {
     addNewExpense(newExpense);
   };
 
-  return (
-    <div className="row">
-      <div className="offset-3 col-6">
+  return createPortal(
+    <div className="backdrop">
+      <div className="my-form">
         <div className="card">
           <div className="card-body">
             <h2 className="text-center">Add Expense</h2>
@@ -89,7 +92,8 @@ const ExpenseForm = ({ closeForm, addNewExpense }) => {
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.getElementById("modal")
   );
 };
 
