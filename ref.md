@@ -152,3 +152,6 @@ Short Circuit Operator - &&
 # Points to remember
 
 - Whenever new State is depend upon the previous State, always supply function in state changing method
+- Changing state is always asynchronous
+- Functional Comp : state change will re-render the complete component
+- Class Based Comp : state change will only re-render the "render()" function.

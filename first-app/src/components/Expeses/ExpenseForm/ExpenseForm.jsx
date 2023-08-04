@@ -4,7 +4,7 @@ import { createPortal } from "react-dom";
 import { v4 } from "uuid";
 import "./ExpenseForm.css";
 
-const ExpenseForm = ({ closeForm, addNewExpense, setShow }) => {
+const ExpenseForm = ({ closeForm, addNewExpense }) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredCreatedAt, setEnteredCreatedAt] = useState("");
