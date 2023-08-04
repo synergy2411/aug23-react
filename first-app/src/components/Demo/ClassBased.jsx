@@ -3,14 +3,38 @@ import React from "react";
 class ClassBased extends React.Component {
   state = {
     counter: 0,
+    todos: [],
   };
 
   constructor(props) {
     super(props);
+    this.increaseCounter = this.increaseCounter.bind(this);
+    console.log("constructor");
+  }
+
+  componentDidMount() {
+    console.log("componentDidMount");
+    fetch("https://jsonplaceholder.typicode.com/todos")
+      .then((r) => r.json())
+      .then((todos) => this.setState({ todos }))
+      .catch(console.error);
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log("shouldComponentUpdate");
+    // console.log(nextProps, nextState);
+    return nextProps.toggle !== this.props.toggle;
+  }
+  componentDidUpdate() {
+    console.log("componentDidUpdate");
+  }
+
+  componentWillUnmount() {
+    console.log("componentWillUnmount");
   }
 
   increaseCounter() {
-    // this.state.counter++;           // NEVER EVER CHANGE MUTABLY
+    // this.state.counter++;           // NEVER EVER CHANGE STATE MUTABLY
     this.setState({
       counter: this.state.counter + 1,
     });
@@ -23,13 +47,11 @@ class ClassBased extends React.Component {
   };
 
   render() {
+    console.log("render");
     return (
       <div className="container">
         <h1>{this.state.counter}</h1>
-        <button
-          className="btn btn-primary"
-          onClick={this.increaseCounter.bind(this)}
-        >
+        <button className="btn btn-primary" onClick={this.increaseCounter}>
           +1
         </button>
 
@@ -40,6 +62,13 @@ class ClassBased extends React.Component {
 
         {this.props.toggle && <h2>Toggle is true</h2>}
         {!this.props.toggle && <h2>Toggle is false</h2>}
+
+        <hr />
+        <ul>
+          {this.state.todos.map((todo) => (
+            <li key={todo.id}>{todo.title}</li>
+          ))}
+        </ul>
       </div>
     );
   }
