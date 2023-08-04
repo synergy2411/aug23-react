@@ -88,12 +88,12 @@ Typescript
 # React - to render the UI quickly and efficiently
 
 - 25-30kb
-- M"V"C
+- M"V"C - View Part
 - Side effects : XHR Call, State Management, Form Validation, Create SPA, 2 way data binding etc
-- Virtual DOM
+- Virtual DOM : Diffing Algo as well as Reconciliation Process
 - Diffing Algo
 - XHR Call - fetch API, jquery, axios etc
-- State MAnagement - Redux pattern - Reduxjs Toolkit (RTK)
+- State Management - Redux pattern - Reduxjs Toolkit (RTK)
 - Form Validation - react-hook-form, formik, yup etc
 - Single Page App (SPA) - react-router-dom
 
@@ -145,3 +145,5 @@ Typescript
 # to install bootstrap library
 
 > npm install bootstrap
+
+Short Circuit Operator - &&
