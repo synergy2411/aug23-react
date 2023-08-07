@@ -5,6 +5,7 @@ export default function UseEffect() {
   const [searchTerm, setSearchTerm] = useState("");
   const [counter, setCounter] = useState(0);
   const [repos, setRepos] = useState([]);
+
   //   useEffect(() => {
   //     console.log("Use effect works!");
   //     return () => {

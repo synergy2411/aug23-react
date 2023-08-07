@@ -5,6 +5,7 @@ import ClassBased from "./components/Demo/ClassBased";
 import Login from "./components/Demo/Login";
 import RegisterForm from "./components/Demo/RegisterForm";
 import UseEffect from "./components/Demo/UseEffect";
+import AuthContext from "./context/auth-context";
 
 function App() {
   // const [toggle, setToggle] = useState(false);
@@ -12,13 +13,17 @@ function App() {
 
   // console.log("App Render");
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
     <>
       <h1>App Component works!</h1>
 
-      <UseEffect />
+      <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+        <Login />
+      </AuthContext.Provider>
 
-      {/* <Login /> */}
+      {/* <UseEffect /> */}
 
       {/* <RegisterForm /> */}
 

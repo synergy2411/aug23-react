@@ -173,3 +173,4 @@ Short Circuit Operator - &&
 - Changing state is always asynchronous
 - Functional Comp : state change will re-render the complete component
 - Class Based Comp : state change will only re-render the "render()" function.
+- Prop-drilling : sending the data to nested child components
