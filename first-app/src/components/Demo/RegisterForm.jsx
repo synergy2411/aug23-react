@@ -51,6 +51,7 @@ const RegisterForm = () => {
           value={values.firstName}
           onChange={handleChange}
           onBlur={handleBlur}
+          style={{ backgroundColor: errors.firstName ? "red" : "transparent" }}
         />
         <br />
 

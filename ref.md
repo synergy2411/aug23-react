@@ -149,6 +149,24 @@ Typescript
 
 Short Circuit Operator - &&
 
+# Class based component life cycle methods
+
+- componentDidMount
+- componentDidUpdate
+- componentWillUnmount
+
+# useEffect Flavours -
+
+- useEffect(cb) : fire for every render of component
+- useEffect(cb,[]) : (componentDidMount) cb will run ONLY at initial rendering of component
+- useEffect(cb, [Dependencies]) : (componentDidUpdate) cb will run at initial rendering of component as well as whenever the dependency will change.
+- useEffect(cb => cleanUpFn, [Dependencies]) :
+  > cb will execute at initial rendering of component
+  > dependency will change
+  > cleanUp function will run
+  > cb will run
+  > cleanUp will also fire when the component is about to unload (componentWillUnmount)
+
 # Points to remember
 
 - Whenever new State is depend upon the previous State, always supply function in state changing method
