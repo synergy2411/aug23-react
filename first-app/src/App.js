@@ -1,11 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-import Expenses from "./components/Expeses/Expenses";
-import ClassBased from "./components/Demo/ClassBased";
-import Login from "./components/Demo/Login";
-import RegisterForm from "./components/Demo/RegisterForm";
-import UseEffect from "./components/Demo/UseEffect";
-import AuthContext from "./context/auth-context";
+import UseReducer from "./components/Demo/UseReducer";
 
 function App() {
   // const [toggle, setToggle] = useState(false);
@@ -13,15 +8,17 @@ function App() {
 
   // console.log("App Render");
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <>
       <h1>App Component works!</h1>
 
-      <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+      <UseReducer />
+
+      {/* <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
         <Login />
-      </AuthContext.Provider>
+      </AuthContext.Provider> */}
 
       {/* <UseEffect /> */}
 

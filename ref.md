@@ -174,3 +174,15 @@ Short Circuit Operator - &&
 - Functional Comp : state change will re-render the complete component
 - Class Based Comp : state change will only re-render the "render()" function.
 - Prop-drilling : sending the data to nested child components
+
+# State Management
+
+- Component Level State : useState(), useReducer()
+- Branch Level State : Context API; should NOT create more than 2 context ideally
+- App Level State : JWT Token -> Redux
+
+<ThemeContext.Provider>
+<AuthContext.Provider>
+<MyApp />
+</AuthContext.Provider>
+</ThemeContext.Provider>
