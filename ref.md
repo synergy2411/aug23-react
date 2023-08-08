@@ -186,3 +186,23 @@ Short Circuit Operator - &&
 <MyApp />
 </AuthContext.Provider>
 </ThemeContext.Provider>
+
+# Forms
+
+- Controlled : React manage the state of form element
+- Uncontrolled : DOM manage the state of form element
+
+# Hooks
+
+- useState
+- useEffect
+- useRef
+- useContext
+- useReducer
+
+- useCallback
+- useMemo
+
+useCallback(cb, []) === useMemo(() => cb, [])
+
+# Single Page Application (SPA)

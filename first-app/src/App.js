@@ -1,6 +1,6 @@
 import React from "react";
 
-import UseReducer from "./components/Demo/UseReducer";
+import Parent from "./components/Demo/Parent";
 
 function App() {
   // const [toggle, setToggle] = useState(false);
@@ -14,7 +14,9 @@ function App() {
     <>
       <h1>App Component works!</h1>
 
-      <UseReducer />
+      <Parent />
+
+      {/* <UseReducer /> */}
 
       {/* <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
         <Login />
