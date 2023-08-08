@@ -3,6 +3,7 @@ import HomePage from "./pages/HomePage";
 import PostsPage, { loader as PostLoader } from "./pages/PostsPage";
 import RootLayout from "./components/RootLayout";
 import ErrorPage from "./pages/ErrorPage";
+import PostDetailPage from "./pages/PostDetailPage";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
         path: "posts", // http://localhost:3000/posts
         element: <PostsPage />,
         loader: PostLoader,
+      },
+      {
+        path: "posts/:postId",
+        element: <PostDetailPage />,
       },
     ],
   },
