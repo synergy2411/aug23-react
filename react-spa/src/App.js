@@ -7,6 +7,7 @@ import PostDetailPage, {
   loader as PostDetailLoader,
   action as PostDetailAction,
 } from "./pages/PostDetailPage";
+import AddPostPage, { action as AddPostPageAction } from "./pages/AddPostPage";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,11 @@ const router = createBrowserRouter([
         element: <PostDetailPage />,
         loader: PostDetailLoader,
         action: PostDetailAction,
+      },
+      {
+        path: "posts/new",
+        element: <AddPostPage />,
+        action: AddPostPageAction,
       },
     ],
   },

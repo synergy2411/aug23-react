@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData, json, useNavigate } from "react-router-dom";
+import { useLoaderData, json, useNavigate, Link } from "react-router-dom";
 import "./PostsPage.css";
 
 export default function PostsPage() {
@@ -7,17 +7,26 @@ export default function PostsPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="row">
-      {posts.map((post) => (
-        <div className="col-4" key={post.id}>
-          <div className="card my-card" onClick={() => navigate(post.id)}>
-            <div className="card-header">
-              <h5 className="text-center">{post.title.toUpperCase()}</h5>
-            </div>
+    <>
+      <div className="row mb-4">
+        <div className="col-4 offset-4">
+          <div className="d-grid text-center">
+            <Link to="new">Add Post</Link>
           </div>
         </div>
-      ))}
-    </div>
+      </div>
+      <div className="row">
+        {posts.map((post) => (
+          <div className="col-4" key={post.id}>
+            <div className="card my-card" onClick={() => navigate(post.id)}>
+              <div className="card-header">
+                <h5 className="text-center">{post.title.toUpperCase()}</h5>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
 
