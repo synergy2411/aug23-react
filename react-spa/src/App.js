@@ -5,6 +5,7 @@ import RootLayout from "./components/RootLayout";
 import ErrorPage from "./pages/ErrorPage";
 import PostDetailPage, {
   loader as PostDetailLoader,
+  action as PostDetailAction,
 } from "./pages/PostDetailPage";
 
 const router = createBrowserRouter([
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
         path: "posts/:postId",
         element: <PostDetailPage />,
         loader: PostDetailLoader,
+        action: PostDetailAction,
       },
     ],
   },
