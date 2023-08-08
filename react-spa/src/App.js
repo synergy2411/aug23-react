@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./pages/HomePage";
-import PostsPage from "./pages/PostsPage";
+import PostsPage, { loader as PostLoader } from "./pages/PostsPage";
 import RootLayout from "./components/RootLayout";
 import ErrorPage from "./pages/ErrorPage";
 
@@ -11,12 +11,13 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/",
+        index: true,
         element: <HomePage />,
       },
       {
-        path: "/posts",
+        path: "posts", // http://localhost:3000/posts
         element: <PostsPage />,
+        loader: PostLoader,
       },
     ],
   },

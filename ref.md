@@ -206,3 +206,15 @@ Short Circuit Operator - &&
 useCallback(cb, []) === useMemo(() => cb, [])
 
 # Single Page Application (SPA)
+
+- npm install react-router-dom
+
+# to install json-server
+
+> npm install json-server -g
+> Create db.json file in "data" folder outside "playground"
+> run below command from "data" folder
+
+- json-server --watch db.json --port=3030
+
+- http://localhost:3030/posts
