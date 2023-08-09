@@ -235,3 +235,10 @@ useCallback(cb, []) === useMemo(() => cb, [])
 - json-server --watch db.json --port=3030
 
 - http://localhost:3030/posts
+
+# Redux Library
+
+- State Management
+- Component Level : useState(), useReducer()
+- Cross Component Level State : Context API / Redux
+- App Level State : Redux
