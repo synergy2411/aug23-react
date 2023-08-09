@@ -25,6 +25,12 @@ export default function CounterButtons() {
       >
         Add (10)
       </button>
+      <button
+        className="btn btn-warning"
+        onClick={() => dispatch(fromActions.subtractCounter(5))}
+      >
+        Subtract (5)
+      </button>
     </div>
   );
 }
