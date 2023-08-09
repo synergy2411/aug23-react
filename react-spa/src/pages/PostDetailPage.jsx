@@ -87,7 +87,7 @@ export async function action({ request, params }) {
     );
   }
 
-  return redirect("/");
+  return redirect("/posts");
 }
 
 export async function loader({ request, params }) {
