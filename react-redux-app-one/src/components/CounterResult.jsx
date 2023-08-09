@@ -3,8 +3,8 @@ import * as fromActions from "../store/actions/counter.action";
 
 export default function CounterResult() {
   const dispatch = useDispatch();
-  const counter = useSelector((store) => store.counter);
-  const result = useSelector((store) => store.result);
+  const counter = useSelector((store) => store.ctr.counter);
+  const result = useSelector((store) => store.res.result);
 
   return (
     <>

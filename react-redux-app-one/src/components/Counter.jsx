@@ -4,7 +4,7 @@ import CounterButtons from "./CounterButtons";
 import CounterResult from "./CounterResult";
 
 export default function Counter() {
-  const count = useSelector((store) => store.counter);
+  const count = useSelector((store) => store.ctr.counter);
 
   return (
     <>
