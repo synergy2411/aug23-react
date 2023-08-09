@@ -54,16 +54,14 @@ export default function PostDetailPage() {
                 </div>
               </div>
               <div className="col-6">
-                <Form>
-                  <div className="d-grid">
-                    <button
-                      className="btn btn-outline-danger"
-                      onClick={postDeleteHandler}
-                    >
-                      Delete
-                    </button>
-                  </div>
-                </Form>
+                <div className="d-grid">
+                  <button
+                    className="btn btn-outline-danger"
+                    onClick={postDeleteHandler}
+                  >
+                    Delete
+                  </button>
+                </div>
               </div>
             </div>
           </div>
