@@ -34,3 +34,11 @@ export function deleteResult(value) {
     payload: value,
   };
 }
+
+export function asyncAddCounter(value) {
+  return function (dispatch) {
+    setTimeout(() => {
+      dispatch(addCounter(value));
+    }, 3000);
+  };
+}

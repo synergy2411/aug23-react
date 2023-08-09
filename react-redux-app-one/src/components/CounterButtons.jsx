@@ -31,6 +31,12 @@ export default function CounterButtons() {
       >
         Subtract (5)
       </button>
+      <button
+        className="btn btn-info"
+        onClick={() => dispatch(fromActions.asyncAddCounter(10))}
+      >
+        Async Add (10)
+      </button>
     </div>
   );
 }
