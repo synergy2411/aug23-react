@@ -1,16 +1,15 @@
 import {
-  json,
-  useLoaderData,
-  useNavigate,
   Form,
-  useSubmit,
+  json,
   redirect,
+  useLoaderData,
+  useSubmit,
 } from "react-router-dom";
 
 export default function PostDetailPage() {
   const post = useLoaderData();
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const submit = useSubmit();
 
   const postDeleteHandler = async () => {
@@ -19,7 +18,7 @@ export default function PostDetailPage() {
     );
 
     if (proceed) {
-      submit(null, { method: "DELETE", relative: "path" });
+      submit(null, { method: "DELETE" });
     }
 
     // ALTERNATE TO SENDING ACTION TO ROUTER
@@ -88,11 +87,13 @@ export async function action({ request, params }) {
     );
   }
 
-  return redirect("posts");
+  return redirect("/");
 }
 
 export async function loader({ request, params }) {
   const { postId } = params;
+
+  console.log("LOADER : ");
 
   const resp = await fetch(`http://localhost:3030/posts/${postId}`);
 

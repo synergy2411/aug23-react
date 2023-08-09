@@ -1,5 +1,6 @@
 .my-card {
   transition: all o.3s ease;
+  margin-bottom: 20px;
 }
 .my-card:hover {
   background-color: rgb(214, 212, 212);

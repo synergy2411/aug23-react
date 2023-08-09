@@ -6,12 +6,22 @@ export default function MainNavigation() {
       <nav className="navbar navbar-expand">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <NavLink to="/" className="nav-link">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? "active nav-link" : "nav-link"
+              }
+            >
               Home
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/posts" className="nav-link">
+            <NavLink
+              to="/posts"
+              className={({ isActive }) =>
+                isActive ? "active nav-link" : "nav-link"
+              }
+            >
               Posts
             </NavLink>
           </li>

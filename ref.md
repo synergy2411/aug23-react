@@ -209,6 +209,23 @@ useCallback(cb, []) === useMemo(() => cb, [])
 
 - npm install react-router-dom
 
+# Routing Terminologies -
+
+- BrowserRouter : createBrowserRouter()
+- RouterProvider
+- Nested Routing : children props
+- error : ErrorElement Prop
+- loader : loads the data before the page render
+- action : <Form> component
+- redirect : redirect the user
+- json() : throw error
+- outlet : provide the space to load the child component UI
+- NavLink / Link : does not reload the browser
+- useLoaderData() : consume the loader data in component
+- useNavigate() : navigate the user programmatically
+- useParams() : access the route parameter
+- useSubmit() : to submit the form programmatically
+
 # to install json-server
 
 > npm install json-server -g

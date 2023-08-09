@@ -18,7 +18,10 @@ export default function PostsPage() {
       <div className="row">
         {posts.map((post) => (
           <div className="col-4" key={post.id}>
-            <div className="card my-card" onClick={() => navigate(post.id)}>
+            <div
+              className="card my-card"
+              onClick={() => navigate("/posts/" + post.id)}
+            >
               <div className="card-header">
                 <h5 className="text-center">{post.title.toUpperCase()}</h5>
               </div>
