@@ -6,7 +6,7 @@ import { userLogout } from "../store/slices/auth.slice";
 export default function MainNavigation() {
   const dispatch = useDispatch();
 
-  const { token } = useSelector((store) => store.auth);
+  const { token, isLoading } = useSelector((store) => store.auth);
   return (
     <header>
       <div className="row">
@@ -33,7 +33,7 @@ export default function MainNavigation() {
                 className="btn btn-outline-danger"
                 onClick={() => dispatch(userLogout())}
               >
-                Logout
+                {isLoading ? "Logging out..." : "Logout"}
               </button>
             </div>
           </div>

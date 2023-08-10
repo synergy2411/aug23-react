@@ -16,7 +16,7 @@ const firebaseAuth = getAuth(firebaseApp);
 
 export const userRegisterAction = createAsyncThunk(
   "user/register",
-  async ({ email, password }) => {
+  async ({ email, password }, { rejectWithValue }) => {
     try {
       const userCredentials = await createUserWithEmailAndPassword(
         firebaseAuth,
@@ -24,18 +24,21 @@ export const userRegisterAction = createAsyncThunk(
         password
       );
 
-      const token = userCredentials.user.getIdToken();
+      const token = await userCredentials.user.getIdToken();
 
+      if (!token) {
+        throw new Error("Unable to create the user.");
+      }
       return token;
     } catch (err) {
-      console.error(err);
+      return rejectWithValue(err);
     }
   }
 );
 
 export const userLogin = createAsyncThunk(
   "user/login",
-  async ({ email, password }) => {
+  async ({ email, password }, { rejectWithValue }) => {
     try {
       const userCredentials = await signInWithEmailAndPassword(
         firebaseAuth,
@@ -43,21 +46,28 @@ export const userLogin = createAsyncThunk(
         password
       );
 
-      return userCredentials.user.getIdToken();
+      const token = userCredentials.user.getIdToken();
+      if (!token) {
+        throw new Error("Unable to login.");
+      }
+      return token;
     } catch (err) {
-      console.error(err);
+      return rejectWithValue(err);
     }
   }
 );
 
-export const userLogout = createAsyncThunk("user/logout", async () => {
-  try {
-    const resp = await signOut(firebaseAuth);
-    return;
-  } catch (err) {
-    console.log(err);
+export const userLogout = createAsyncThunk(
+  "user/logout",
+  async ({ rejectWithValue }) => {
+    try {
+      const resp = await signOut(firebaseAuth);
+      return;
+    } catch (err) {
+      return rejectWithValue("Unable to sign out.");
+    }
   }
-});
+);
 
 const initialState = {
   token: null,
@@ -75,12 +85,12 @@ const authSlice = createSlice({
     });
     builder.addCase(userRegisterAction.fulfilled, (state, action) => {
       state.isLoading = false;
-      console.log("FULFILLED ACTION : ", action);
+      console.log("REGISTER FULFILLED ACTION : ", action);
       state.token = action.payload;
     });
     builder.addCase(userRegisterAction.rejected, (state, action) => {
       state.isLoading = false;
-      console.log("REJECTED ACTION : ", action);
+      state.errMessage = action.payload.code;
     });
     builder.addCase(userLogin.pending, (state) => {
       state.isLoading = true;
@@ -91,6 +101,7 @@ const authSlice = createSlice({
     });
     builder.addCase(userLogin.rejected, (state, action) => {
       state.isLoading = false;
+      state.errMessage = action.payload.code;
     });
     builder.addCase(userLogout.pending, (state) => {
       state.isLoading = true;

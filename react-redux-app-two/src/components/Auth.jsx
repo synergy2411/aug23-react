@@ -34,7 +34,7 @@ export default function Auth() {
         <div className="card">
           <div className="card-body">
             <h4 className="text-center">User Registration Form</h4>
-            <h5>Token is {token ? "" : "NOT "}Generated</h5>
+            {errMessage && <p>{errMessage}</p>}
             <form>
               {/* email */}
               <div className="form-group mb-4">
