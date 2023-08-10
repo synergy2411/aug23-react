@@ -1,6 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
 
 const firebaseApp = initializeApp({
   apiKey: "AIzaSyAKxo9omNyXHq3QbBvIIB8vLCFl_2TwSI8",
@@ -28,6 +33,32 @@ export const userRegisterAction = createAsyncThunk(
   }
 );
 
+export const userLogin = createAsyncThunk(
+  "user/login",
+  async ({ email, password }) => {
+    try {
+      const userCredentials = await signInWithEmailAndPassword(
+        firebaseAuth,
+        email,
+        password
+      );
+
+      return userCredentials.user.getIdToken();
+    } catch (err) {
+      console.error(err);
+    }
+  }
+);
+
+export const userLogout = createAsyncThunk("user/logout", async () => {
+  try {
+    const resp = await signOut(firebaseAuth);
+    return;
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 const initialState = {
   token: null,
   isLoading: false,
@@ -50,6 +81,26 @@ const authSlice = createSlice({
     builder.addCase(userRegisterAction.rejected, (state, action) => {
       state.isLoading = false;
       console.log("REJECTED ACTION : ", action);
+    });
+    builder.addCase(userLogin.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(userLogin.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.token = action.payload;
+    });
+    builder.addCase(userLogin.rejected, (state, action) => {
+      state.isLoading = false;
+    });
+    builder.addCase(userLogout.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(userLogout.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.token = null;
+    });
+    builder.addCase(userLogout.rejected, (state, action) => {
+      state.isLoading = false;
     });
   },
 });

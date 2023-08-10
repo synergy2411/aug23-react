@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { userRegisterAction } from "../store/slices/auth.slice";
+import { userRegisterAction, userLogin } from "../store/slices/auth.slice";
 
 export default function Auth() {
   const { token, isLoading, errMessage } = useSelector((store) => store.auth);
@@ -19,7 +19,14 @@ export default function Auth() {
     dispatch(userRegisterAction(newUser));
   };
 
-  const loginHandler = () => {};
+  const loginHandler = (e) => {
+    e.preventDefault();
+    let user = {
+      email: emailInputRef.current.value,
+      password: passwordInputRef.current.value,
+    };
+    dispatch(userLogin(user));
+  };
 
   return (
     <div className="row">
@@ -27,6 +34,7 @@ export default function Auth() {
         <div className="card">
           <div className="card-body">
             <h4 className="text-center">User Registration Form</h4>
+            <h5>Token is {token ? "" : "NOT "}Generated</h5>
             <form>
               {/* email */}
               <div className="form-group mb-4">
@@ -55,23 +63,17 @@ export default function Auth() {
                     <button
                       className="btn btn-secondary"
                       onClick={registerHandler}
-                      disabled={isLoading}
                     >
-                      {isLoading ? "Submitting..." : "Register"}
+                      Register
                     </button>
                   </div>
                 </div>
                 <div className="col-6">
-                  {token && (
-                    <div className="d-grid">
-                      <button
-                        className="btn btn-primary"
-                        onClick={loginHandler}
-                      >
-                        Login
-                      </button>
-                    </div>
-                  )}
+                  <div className="d-grid">
+                    <button className="btn btn-primary" onClick={loginHandler}>
+                      Login
+                    </button>
+                  </div>
                 </div>
               </div>
             </form>
