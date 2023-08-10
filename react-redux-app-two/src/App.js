@@ -6,9 +6,9 @@ function App() {
     <div className="container">
       <h1>App Renders!</h1>
 
-      <Counter />
+      {/* <Counter /> */}
 
-      {/* <Auth /> */}
+      <Auth />
     </div>
   );
 }
