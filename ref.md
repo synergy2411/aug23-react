@@ -242,3 +242,29 @@ useCallback(cb, []) === useMemo(() => cb, [])
 - Component Level : useState(), useReducer()
 - Cross Component Level State : Context API / Redux
 - App Level State : Redux
+
+# Redux Building BLocks
+
+- Action: { type : "", payload? :"" }
+- Reducer: Pure function (prevState, action) => newState
+- Store: Object, contains state slices; Single Store
+- Middleware: "thunk" middleware: delayed the dispatch action
+
+## Functional Components -
+
+- useSelector(): select the state slice from the store
+- useDispatch(): to dispatch the action to store
+
+## Class Based Components
+
+- connect(mapStateToProps, mapDispatchToProps)
+
+# npm install redux react-redux redux-thunk
+
+# npm install @reduxjs/toolkit (RTK)
+
+- batteries included
+- immer Library
+- thunk included
+- devtools included
+- other features - createSlice, createReducer, createAsyncThunk etc
