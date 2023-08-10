@@ -1,6 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { increment, decrement } from "../store/slices/counter.slice";
+import {
+  increment,
+  decrement,
+  addCounter,
+} from "../store/slices/counter.slice";
 
 export default function Counter() {
   const counter = useSelector((store) => store.ctr.counter);
@@ -22,6 +26,12 @@ export default function Counter() {
           onClick={() => dispatch(decrement())}
         >
           -1
+        </button>
+        <button
+          className="btn btn-warning"
+          onClick={() => dispatch(addCounter(5))}
+        >
+          +5
         </button>
       </div>
     </>
