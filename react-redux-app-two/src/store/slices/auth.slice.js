@@ -19,9 +19,9 @@ export const userRegisterAction = createAsyncThunk(
         password
       );
 
-      console.log("User Credentials : ", userCredentials);
+      const token = userCredentials.user.getIdToken();
 
-      return "";
+      return token;
     } catch (err) {
       console.error(err);
     }
@@ -38,7 +38,20 @@ const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {},
-  extraReducers: () => {},
+  extraReducers: (builder) => {
+    builder.addCase(userRegisterAction.pending, (state, action) => {
+      state.isLoading = true;
+    });
+    builder.addCase(userRegisterAction.fulfilled, (state, action) => {
+      state.isLoading = false;
+      console.log("FULFILLED ACTION : ", action);
+      state.token = action.payload;
+    });
+    builder.addCase(userRegisterAction.rejected, (state, action) => {
+      state.isLoading = false;
+      console.log("REJECTED ACTION : ", action);
+    });
+  },
 });
 
 const authReducer = authSlice.reducer;

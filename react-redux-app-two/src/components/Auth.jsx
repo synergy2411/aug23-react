@@ -1,8 +1,10 @@
 import React, { useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { userRegisterAction } from "../store/slices/auth.slice";
 
 export default function Auth() {
+  const { token, isLoading, errMessage } = useSelector((store) => store.auth);
+
   const dispatch = useDispatch();
 
   const emailInputRef = useRef(null);
@@ -16,6 +18,8 @@ export default function Auth() {
     };
     dispatch(userRegisterAction(newUser));
   };
+
+  const loginHandler = () => {};
 
   return (
     <div className="row">
@@ -51,10 +55,23 @@ export default function Auth() {
                     <button
                       className="btn btn-secondary"
                       onClick={registerHandler}
+                      disabled={isLoading}
                     >
-                      Register
+                      {isLoading ? "Submitting..." : "Register"}
                     </button>
                   </div>
+                </div>
+                <div className="col-6">
+                  {token && (
+                    <div className="d-grid">
+                      <button
+                        className="btn btn-primary"
+                        onClick={loginHandler}
+                      >
+                        Login
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
             </form>

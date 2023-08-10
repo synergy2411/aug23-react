@@ -268,3 +268,5 @@ useCallback(cb, []) === useMemo(() => cb, [])
 - thunk included
 - devtools included
 - other features - createSlice, createReducer, createAsyncThunk etc
+
+/react-redux-app-two> npm install
