@@ -7,6 +7,7 @@ const store = configureStore({
     ctr: counterReducer,
     auth: authReducer,
   },
+  devTools: true,
 });
 
 export default store;
