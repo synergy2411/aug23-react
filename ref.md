@@ -285,11 +285,19 @@ useCallback(cb, []) === useMemo(() => cb, [])
   > add code reusability
   > Simple function
   > return enhanced components
+  > can be used with functional as well as class based component
 
 const enhancedDemoComponent = withHoC(DemoComponent)
 const enhancedDemoTwoComponent = withHoC(DemoTwoComponent)
 
 - Custom Hook
+
+  > Simple functions with prefix "use"
+  > add code reusability
+  > use of built-in hooks
+  > return the values
+  > can only be used with functional component
+
 - Component Composition
 
 - Typescript based React project
