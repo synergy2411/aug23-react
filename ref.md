@@ -270,3 +270,15 @@ useCallback(cb, []) === useMemo(() => cb, [])
 - other features - createSlice, createReducer, createAsyncThunk etc
 
 /react-redux-app-two> npm install
+
+# Testing Part
+
+- Async Testing :
+- getBy : return error if element NOT found
+- queryBy : return NULL if element NOT found
+- findBy : return promise
+
+- Higher Order Component
+- Custom Hook
+- Component Composition
+- Typescript based React project
