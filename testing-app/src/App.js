@@ -16,7 +16,9 @@ function App() {
       <Greet
         title={<h1>The Greet Component</h1>}
         message={<Message username={username} />}
-      />
+      >
+        <p>Some cool content here...</p>
+      </Greet>
 
       {/* <Posts /> */}
 
