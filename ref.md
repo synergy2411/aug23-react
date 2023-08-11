@@ -300,8 +300,10 @@ const enhancedDemoTwoComponent = withHoC(DemoTwoComponent)
 
 - Component Composition
 
+  > Creating components from other components
+  > Solves the "Prop drilling" problem
+
 - Typescript based React project
 
-HoF - Higher Order Function
-
-setTimeout(() =>{}, 1000)
+- "is-a" relationship (Student is a Person)
+- "has-a" relationship (Book has an Author)
