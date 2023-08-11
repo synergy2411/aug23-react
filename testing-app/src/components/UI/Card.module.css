@@ -1,0 +1,20 @@
+.card {
+  border: 1px black dotted;
+  margin: 10px;
+  padding: 10px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+  width: 200px;
+}
+
+.card-header {
+  border: 1px rgb(78, 78, 78) solid;
+  background-color: rgb(143, 142, 142);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.card-body {
+  padding: 10px;
+  margin: 12px 0;
+  color: rgb(77, 76, 76);
+}
