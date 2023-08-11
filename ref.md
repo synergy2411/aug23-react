@@ -278,7 +278,22 @@ useCallback(cb, []) === useMemo(() => cb, [])
 - queryBy : return NULL if element NOT found
 - findBy : return promise
 
-- Higher Order Component
+# Code Reusability
+
+- Higher Order Component (HOC)
+  > wraps other component
+  > add code reusability
+  > Simple function
+  > return enhanced components
+
+const enhancedDemoComponent = withHoC(DemoComponent)
+const enhancedDemoTwoComponent = withHoC(DemoTwoComponent)
+
 - Custom Hook
 - Component Composition
+
 - Typescript based React project
+
+HoF - Higher Order Function
+
+setTimeout(() =>{}, 1000)
