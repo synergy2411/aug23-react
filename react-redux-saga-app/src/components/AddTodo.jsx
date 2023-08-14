@@ -1,5 +1,20 @@
 import React, { useRef } from "react";
 import { useDispatch } from "react-redux";
+import style from "styled-components";
+
+const H1 = style.h1`
+    font-size : 1.2rem;
+    color : blue
+`;
+
+const Button = style.button`
+    border : 2px red solid;
+    color : grey;
+    backgroundColor : #fff;
+    fontSize : 1.2rem;
+    padding : 10px 12px
+
+`;
 
 export default function AddTodo() {
   const inputRef = useRef();
@@ -16,9 +31,10 @@ export default function AddTodo() {
 
   return (
     <>
+      <H1>The Form</H1>
       <form>
         <input type="text" ref={inputRef} />
-        <button onClick={clickHandler}>Add</button>
+        <Button onClick={clickHandler}>Add</Button>
       </form>
     </>
   );
