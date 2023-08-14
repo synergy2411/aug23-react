@@ -15,3 +15,16 @@ export const fetchTodos = async () => {
     console.log(err);
   }
 };
+
+export const createTodo = async (action) => {
+  try {
+    const { title, completed } = action.payload;
+    const response = await axios.post(
+      "todos",
+      JSON.stringify({ title, completed })
+    );
+    return response.data;
+  } catch (err) {
+    console.log(err);
+  }
+};

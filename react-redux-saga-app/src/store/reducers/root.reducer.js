@@ -16,6 +16,10 @@ export default function rootReducer(state = initialState, action) {
       isLoading: false,
       todos: action.payload,
     };
+  } else if (action.type === todoActions.CREATE_TODO) {
+    return {
+      todos: [action.payload, ...state.todos],
+    };
   }
 
   return state;
